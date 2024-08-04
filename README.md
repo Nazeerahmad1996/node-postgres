@@ -8,8 +8,6 @@ It will download all the required dependencies
 
 ## You need postgres connection keys.
 
-### `Add .env file and add these configuration`
-
 ## Environment Variables
 
 ```plaintext
