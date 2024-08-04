@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "a4c13692-e1d8-4fa2-afa7-e39efd2934a5",
+		"name": "Node + Postgres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3496281"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userType\": 1,\n    \"firstName\": \"nazeer\",\n    \"lastName\": \"ahmed\",\n    \"email\": \"nazeer@gmail.com\",\n    \"password\": \"adminkhan\",\n    \"confirmPassword\": \"adminkhan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"umair@gmail.com\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addprojects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ1bWFpckBnbWFpbC5jb20iLCJpYXQiOjE3MjI3ODUxMDIsImV4cCI6MTcyMzY0OTEwMn0.jucGSAw3mFfksiZuMosUqVrTTxBP0vQxBCLPv28VoP4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"NASA\",\n    \"isFeatured\": true,\n    \"productImage\": [\"google.com\"],\n    \"price\": 100,\n    \"shortDescription\": \"NASA Moon Mission\",\n    \"description\": \"NASA moon missions to discover more about universe\",\n    \"productUrl\": \"nasa.com\",\n    \"category\": [\"Science\"],\n    \"tags\": [\"science\", \"nasa\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProjects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuYXplZXJAZ21haWwuY29tIiwiaWF0IjoxNzIyNzU5ODY3LCJleHAiOjE3MjM2MjM4Njd9.T5WTq_T0KRzZkzvqWdURPBwZVDix-eI85mwppssEM9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project get by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuYXplZXJAZ21haWwuY29tIiwiaWF0IjoxNzIyNzU5ODY3LCJleHAiOjE3MjM2MjM4Njd9.T5WTq_T0KRzZkzvqWdURPBwZVDix-eI85mwppssEM9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/projects/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuYXplZXJAZ21haWwuY29tIiwiaWF0IjoxNzIyNzU5ODY3LCJleHAiOjE3MjM2MjM4Njd9.T5WTq_T0KRzZkzvqWdURPBwZVDix-eI85mwppssEM9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"NASA\",\n    \"isFeatured\": true,\n    \"productImage\": [\"www.google.com\"],\n    \"price\": 100,\n    \"shortDescription\": \"NASA Moon Mission\",\n    \"description\": \"NASA moon missions to discover more about universe\",\n    \"productUrl\": \"www.nasa.com\",\n    \"category\": [\"Science\"],\n    \"tags\": [\"science\", \"nasa\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/projects/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

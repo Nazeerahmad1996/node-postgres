@@ -15,7 +15,7 @@ const PORT = process.env.APP_PORT
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.status(200).json({ message: "Hello World" })
+    res.status(200).json({ message: "Home Page" })
 });
 
 // router starts
