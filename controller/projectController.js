@@ -44,7 +44,7 @@ const getAllProject = catchAsync(async (req, res, next) => {
         where: { createdBy: userId },
     });
 
-    await redisClient.setEx(redisKey, process.env.REDIS_TIMEOUT, JSON.stringify(result));
+    await redisClient.setEx(redisKey, process.env.REDIS_EXPIRE_KEY, JSON.stringify(result));
 
     return res.json({
         status: 'success',
