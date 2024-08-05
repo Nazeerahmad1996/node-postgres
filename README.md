@@ -66,3 +66,12 @@ npx sequelize-cli db:migrate:undo:all // to undo all tables from database
 npx sequelize-cli seed:generate --name admin-user // create seeder
 npx sequelize-cli db:seeder:all // migrate it
 ```
+
+
+## User types
+
+```plaintext
+0: Admin
+1: Seller
+2: Buyer
+```

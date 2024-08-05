@@ -2,6 +2,8 @@ const project = require('../db/models/project');
 const user = require('../db/models/user');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const redisClient = require('../utils/redisConnection')
+
 
 const createProject = catchAsync(async (req, res, next) => {
     const body = req.body;
@@ -26,11 +28,23 @@ const createProject = catchAsync(async (req, res, next) => {
 
 const getAllProject = catchAsync(async (req, res, next) => {
     const userId = req.user.id;
+    const redisKey = `projects_user_${userId}`
+
+    let cachedProjects = await redisClient.get(redisKey);
+    if (cachedProjects) {
+        return res.json({
+            status: 'success',
+            data: JSON.parse(cachedProjects),
+        });
+    }
+
 
     const result = await project.findAll({
         include: user,
         where: { createdBy: userId },
     });
+
+    await redisClient.setEx(redisKey, process.env.REDIS_TIMEOUT, JSON.stringify(result));
 
     return res.json({
         status: 'success',

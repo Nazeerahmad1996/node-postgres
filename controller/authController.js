@@ -3,6 +3,7 @@ const JWT = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const catchAsync = require('../utils/catchAsync')
 const AppError = require('../utils/appError')
+
 const generateToken = (payload) => {
     return JWT.sign(payload, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRY_DATE
@@ -75,7 +76,6 @@ const authentication = catchAsync(async (req, res, next) => {
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')
     ) {
-        // Bearer asfdasdfhjasdflkkasdf
         idToken = req.headers.authorization.split(' ')[1];
     }
     if (!idToken) {
