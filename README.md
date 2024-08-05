@@ -22,6 +22,7 @@ JWT_SECRET_KEY=Some secret keys
 JWT_EXPIRY_DATE=10d
 ADMIN_EMAIL=nazeer@gmail.com
 ADMIN_PASSWORD=admin
+REDIS_EXPIRE_KEY = 60
 ```
 
 ## Initialize squelize
@@ -65,6 +66,14 @@ npx sequelize-cli db:migrate:undo:all // to undo all tables from database
 ```plaintext
 npx sequelize-cli seed:generate --name admin-user // create seeder
 npx sequelize-cli db:seeder:all // migrate it
+```
+
+## Configure Redis locally
+
+```plaintext
+Download Docker.
+pull redis image and run the command.
+docker run -p 6379:6379 -it redis/redis-stack-server:latest
 ```
 
 
